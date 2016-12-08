@@ -1,0 +1,15 @@
+@import "vendor";
+
+nav {
+  a {
+    color: green;
+    border-bottom: 5px solid #FFFFFF;
+    height: 50px;
+    // @include outer-container;
+    padding: 0 20px;
+    &:hover {
+      opacity: 0.5;
+      color: red;
+    }
+  }
+}

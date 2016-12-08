@@ -1,0 +1,26 @@
+{
+  "name": "final-project-frontend",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Peter Williams <pedroeldiablo@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-resource": "^1.5.9",
+    "angular-ui-router": "^0.3.2",
+    "satellizer": "^0.15.5"
+  },
+  "devDependencies": {
+    "skeleton": "^2.0.4"
+  }
+}
