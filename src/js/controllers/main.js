@@ -10,9 +10,10 @@ function MainController($auth, $state, $rootScope) {
   function logout() {
     $auth.logout()
       .then(() => {
-        $state.go('usersIndex');
+        $state.go('login');
       });
   }
+  main.logout = logout;
 
   const protectedStates = ['usersEdit', 'usersShow'];
 
@@ -24,8 +25,15 @@ function MainController($auth, $state, $rootScope) {
       main.message= 'You must be logged in to go there!';
     }
   }
-
   $rootScope.$on('$stateChangeStart', secureState);
 
-  main.logout = logout;
+  main.menuVisible = false;
+
+  function toggleMenu() {
+    console.log('clicked');
+    main.menuVisible = main.menuVisible ? false : true;
+  }
+
+  main.toggleMenu = toggleMenu;
+
 }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Final Project</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWU2hcIM0O2y4pK1EPDhP-mJ_AshrCiTE&libraries=geometry,places" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/vendor.js" charset="utf-8"></script>
@@ -10,32 +11,22 @@
   </head>
   <body ng-controller="MainController as main">
     <header>
-      <h1>Final Project</h1>
-      <nav>
-        <!-- <a ui-sref="usersIndex">Home</a>
-        <a ui-sref="register">Register</a>
-        <a ui-sref="login">Login</a> -->
+      <!-- <h1>Wanderlist</h1> -->
+      <nav role="navigation">
         <ul>
-          <li><a ui-sref="usersIndex" ui-sref-active="active">Home</a></li>
-          <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
-          <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-          <li ng-if="main.isLoggedIn()"><a ng-click='main.logout()'>Log Out</a></li>
-        </ul>
-
-        <!-- <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <% if logged_in? %>
-            <li>Hello, <%= current_user.username %></li>
-            <li><%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %></li>
-            <li><%= link_to 'Buildings', buildings_path %></li>
-            <li><%= link_to 'New Building', new_building_path %></li>
-            <li><%= link_to 'Architects', architects_path %></li>
-            <li><%= link_to 'New Architect', new_architect_path %></li>
-          <% else %>
-            <li><%= link_to "Register", register_path %></li>
-            <li><%= link_to "Login", login_path %></li>
-          <% end %>
-        </ul> -->
+          <li class="logo"><a ui-sref="menu">Journal.</a></li>
+          <li class="burger" ng-click="main.toggleMenu()">&#9776;</li>
+          <div class="dropdown" ng-class="{ active: main.menuVisible }">
+            <li><a ui-sref="usersIndex" ui-sref-active="active" class="nav-link">Home</a></li>
+            <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
+            <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
+            <li ng-if="main.isLoggedIn()"><a ui-sref='walksIndex' ui-sref-active="active" class="nav-link">Walks</a></li>
+            <li ng-if="main.isLoggedIn()"><a ui-sref='walksNew' ui-sref-active="active" class="nav-link">New Walk</a></li>
+            <li ng-if="main.isLoggedIn()"><a ui-sref='stopsIndex' ui-sref-active="active" class="nav-link">Stops</a></li>
+            <li ng-if="main.isLoggedIn()"><a ui-sref='stopsNew' ui-sref-active="active" class="nav-link">New Stop</a></li>
+            <li ng-if="main.isLoggedIn()"><a ng-click='main.logout()' class="nav-link">Log Out</a></li>
+          </div>
+        </ul
       </nav>
     </header>
     <main class="container" ui-view>

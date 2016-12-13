@@ -1,0 +1,11 @@
+<section>
+  <h1>Edit A Stop</h1>
+  <form ng-submit="stopsEdit.update()">
+    <label>Title</label>
+    <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="stopsEdit.stop.purpose" class="u-full-width">
+    <input type="string" name="position" placeholder="Position" ng-model="stopsEdit.stop.position" class="u-full-width">
+    <input type="string" name="image" placeholder="Image" ng-model="stopsEdit.stop.image" class="u-full-width">
+    <imput type="boolean" name="public" placeholder="Public" ng-model="stopsEdit.stop.public" class="u-full-width">
+    <button>Update</button>
+  </form>
+</section>

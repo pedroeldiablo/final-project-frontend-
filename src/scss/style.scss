@@ -1,15 +1,210 @@
 @import "vendor";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Raleway+Dots|Roboto:100,100i,400,400i');
 
-nav {
-  a {
-    color: green;
-    border-bottom: 5px solid #FFFFFF;
+
+// font-family: 'Open Sans Condensed', sans-serif;
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Raleway Dots', cursive;
+// font-family: 'Roboto', sans-serif;
+// nav {
+//   a {
+//     color: green;
+//     border-bottom: 5px solid #FFFFFF;
+//     height: 50px;
+//     // @include outer-container;
+//     padding: 0 20px;
+//     &:hover {
+//       opacity: 0.5;
+//       color: red;
+//     }
+//   }
+// }
+
+body {
+  color: pink;
+  background-color: #f9f9f9;
+  font-family: 'Roboto:100i', sans-serif;
+  // font-family: 'Open Sans Condensed', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 15px;
+}
+h4 {
+  font-size: 10px;
+}
+
+.google-map {
+        width: 100%;
+        height: 200px;
+        background-color: grey;
+}
+
+main {
+  // @include outer-container;
+  padding: 30px 20px 0;
+  min-height: calc(100vh - 50px);
+  word-break: break-all;
+  overflow: scroll;
+  }
+
+
+header {
+  border-top: 3px solid grey;
+  border-bottom: 3px solid grey;
+  background-color: black;
+  font-family: 'Raleway Dots', cursive;
+  nav {
+    // border-bottom: 5px solid #FFFFFF;
     height: 50px;
     // @include outer-container;
     padding: 0 20px;
-    &:hover {
-      opacity: 0.5;
-      color: red;
+    ul{
+      li {
+        border-color: grey;
+        border-width: 1px;
+        line-height: 50px;
+        display: inline-block;
+        float: right;
+        margin-left: 10px;
+        color: #000000;
+        a {
+          color: pink;
+          transition: all 0.2s ease;
+          // border-bottom: 5px solid #FFFFFF;
+          height: 50px;
+          // @include outer-container;
+          padding: 0 20px;
+          &:hover {
+            opacity: 0.5;
+            color: red;
+            transition: all 0.2s ease;
+          }
+          &.active {
+            position:relative;
+            &:after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: -2px;
+              left: 0;
+              // background-color: $brand-color;
+            }
+          }
+        }
+        &.logo {
+          float: left;
+          margin-left: 0;
+          font-size: 26px;
+          font-weight: bold;
+        }
+        &.burger {
+          display: none;
+        }
+      }
+      @media (max-width: 767px) {
+        .dropdown {
+          background-color: white;
+          overflow: hidden;
+          width: 100%;
+          z-index: 100;
+          position: absolute;
+          top: 55px;
+          left: 0;
+          padding: 0 20px;
+          border-top: 1px solid #f9f9f9;
+          li {
+            display: none;
+          }
+          &.active {
+            li {
+              display: block;
+              float: none;
+              text-align: center;
+              &:first-of-type {
+                margin-top: 10px;
+              }
+              &:last-of-type {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+        li {
+          &.burger {
+            color: green;
+            display: block;
+            cursor: pointer;
+          }
+        }
+      }
     }
+  }
+}
+
+ul{
+  li {
+
+    &.stop{
+      height: 400px;
+    }
+  }
+}
+
+.background-image {
+  height: calc(100vh - 50px);
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: 50px;
+  left: 0;
+}
+
+.menu {
+  // @include span-columns(6);
+  background-color: gray;
+  // background-color: $light-gray;
+  padding: 20px;
+  // @extend .vertical-center;
+  ul {
+    li {
+      button {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      &:last-of-type {
+        button {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.drag-drop {
+  height: 300px;
+  width: 300px;
+  background-color: green;
+  border-radius: 0px;
+  line-height: 0;
+
+  img {
+    width: 100%;
+  }
+
+  &.active {
+    background-color: grey;
   }
 }

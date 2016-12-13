@@ -1,0 +1,11 @@
+<section>
+  <h1>Stops Show</h1>
+  <ul class="row">
+    <li ng-repeat="stop in stopsIndex.all" class="three columns stops">
+      <a ui-sref="stopsShow({ id: stop.id })">
+      <h2>{{ stop.purpose }}</h2></a>
+      <h4>{{ stop.place.name }}</h4>
+      <google-map>{{ stop.place }}<google-map>
+    </li>
+  </ul>
+</section>

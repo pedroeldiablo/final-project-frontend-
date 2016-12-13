@@ -1,0 +1,16 @@
+<section>
+  <h1>Walks Show</h1>
+  <ul>
+    <li ng-repeat="walk in walksIndex.all">
+      <a ui-sref="walksShow({ id: walk.id })">
+      <h2>{{ walk.name }}</h2></a>
+      <h4>{{ walk.user.username }}</h4>
+      <ul>
+        <li ng-repeat="stop in walk.stops">
+          <h4>{{ stop.purpose }}</h4>
+          <img src="{{ stop.image }}">
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>

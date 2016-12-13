@@ -1,0 +1,17 @@
+<section>
+  <h2>Walks Show</h2>
+  <h2>{{ walksShow.walk.name }}</h2>
+  <h4>{{ walksShow.walk.user.username }}</h4>
+  <ul>
+    <li ng-repeat="stop in walksShow.walk.stops">
+      <h4>{{ stop.purpose }}</h4>
+      <img src="{{ stop.image }}">
+    </li>
+  </ul>
+</section>
+  <!-- <h4>{{ walksShow.walk}}</h4> -->
+
+  <a ng-if="main.isLoggedIn()" ui-sref="walksEdit({ id: walksShow.walk.id })" class="button">Edit</a>
+  <button ng-if="main.isLoggedIn()" ng-click="walksShow.delete()">Delete</button>
+
+</section>
