@@ -10,6 +10,14 @@ StopsIndexController.$inject = ['Stop'];
 function StopsIndexController(Stop) {
   const stopsIndex = this;
 
+  stopsIndex.queryString = '';
+
+  function filter(stop) {
+    const regex = new RegExp(stopsIndex.queryString, 'i');
+    return regex.test(stop.purpose) || regex.test(stop.description) || regex.test(stop.place.name) ||regex.test(stop.user.username);
+  }
+
+  stopsIndex.filter = filter;
   stopsIndex.all = Stop.query();
 }
 

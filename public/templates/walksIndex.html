@@ -1,7 +1,13 @@
 <section>
   <h1>Walks Show</h1>
-  <ul>
-    <li ng-repeat="walk in walksIndex.all">
+  <input type="text" ng-model="walksIndex.queryString" placeholder="Search for walks...">
+    <!-- <li ng-repeat="board in boardsIndex.all | filter: boardsIndex.filter " class="board-single">
+      <board-card board="board"></board-card> -->
+
+  <ul class="row">
+    <!-- <li ng-repeat="stop in stopsIndex.all | filter: stopsIndex.filter "" class="three columns stops"> -->
+    <li ng-repeat="walk in walksIndex.all | filter: walksIndex.filter" class="three columns stops">
+    <!-- <li ng-repeat="walk in walksIndex.all"> -->
       <a ui-sref="walksShow({ id: walk.id })">
       <h2>{{ walk.name }}</h2></a>
       <h4>{{ walk.user.username }}</h4>

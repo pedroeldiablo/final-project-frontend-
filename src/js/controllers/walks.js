@@ -10,8 +10,23 @@ WalksIndexController.$inject = ['Walk'];
 function WalksIndexController(Walk) {
   const walksIndex = this;
 
+  walksIndex.queryString = '';
+
+  function filter(walk) {
+    const regex = new RegExp(walksIndex.queryString, 'i');
+    // const stopNames = walk.stops.map((stop) => {
+    //   return stop.name;
+    // }).join(', ');
+    return regex.test(walk.name) || regex.test(walk.description)||regex.test(walk.user.username);
+
+    // return regex.test(walk.name) || regex.test(walk.description)||regex.test(walk.user.username) ||regex.test(stopNames);
+  }
+
+  walksIndex.filter = filter;
   walksIndex.all = Walk.query();
 }
+
+
 
 // SHOW AN INDIVIDUAL WALK
 WalksShowController.$inject = ['Walk', '$state', '$auth'];

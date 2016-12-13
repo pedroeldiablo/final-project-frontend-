@@ -1,11 +1,16 @@
 <section>
   <h1>Stops Show</h1>
+  <h3>Search for stops....</h3>
+  <input type="text" ng-model="stopsIndex.queryString" placeholder="Search for stops...">
+    <!-- <li ng-repeat="board in boardsIndex.all | filter: boardsIndex.filter " class="board-single">
+      <board-card board="board"></board-card> -->
+
   <ul class="row">
-    <li ng-repeat="stop in stopsIndex.all" class="three columns stops">
+    <li ng-repeat="stop in stopsIndex.all | filter: stopsIndex.filter" class="three columns stops">
       <a ui-sref="stopsShow({ id: stop.id })">
       <h2>{{ stop.purpose }}</h2></a>
       <h4>{{ stop.place.name }}</h4>
-      <google-map>{{ stop.place }}<google-map>
+      <google-map stop="stop"></google-map>
     </li>
   </ul>
 </section>

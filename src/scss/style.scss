@@ -190,9 +190,6 @@ ul{
   }
 }
 
-
-
-
 .drag-drop {
   height: 300px;
   width: 300px;
@@ -201,7 +198,7 @@ ul{
   line-height: 0;
 
   img {
-    width: 100%;
+    width: 200px;
   }
 
   &.active {

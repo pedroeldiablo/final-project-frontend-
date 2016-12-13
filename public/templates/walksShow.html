@@ -8,10 +8,46 @@
       <img src="{{ stop.image }}">
     </li>
   </ul>
-</section>
+
+  <button ng-show="walksShow.isOwnWalk" ng-click="walksShow.showCreateForm()">Add Pin</button>
   <!-- <h4>{{ walksShow.walk}}</h4> -->
 
   <a ng-if="main.isLoggedIn()" ui-sref="walksEdit({ id: walksShow.walk.id })" class="button">Edit</a>
   <button ng-if="main.isLoggedIn()" ng-click="walksShow.delete()">Delete</button>
 
 </section>
+
+<!-- ADD STOP FORM -->
+<div class="overlay" ng-if="walksShow.formVisible">
+
+
+  <h1>Create A Stop</h1>
+
+  {{ stopsNew.stop }}
+
+  <form ng-submit="stopsNew.create()">
+    <label>Purpose</label>
+    <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="stopsNew.stop.purpose" class="u-full-width">
+
+    <label>Place</label>
+    <input type="string" name="place" google-place stop="stopsNew.stop">
+    <!-- <div>{{ stopsNew.stop.place.address }}</div> -->
+    <input type="string" name="place" placeholder="Where are we?" ng-model="stopsNew.stop.place_name" class="u-full-width">
+
+    <label>Position</label>
+    <input type="string" name="position" placeholder="Position" ng-model="stopsNew.stop.position" class="u-full-width">
+
+    <label>Image</label>
+    <input type="string" name="base64" placeholder="Image" ng-model="stopsNew.stop.image" class="u-full-width drag-drop">
+    <label>Public</label>
+    <input type="radio" name="public" placeholder="Public" ng-model="stopsNew.stop.public" value="true">
+
+    <label>Private</label>
+    <input type="radio" name="public" placeholder="" ng-model="stopsNew.stop.public" value="false">
+    <br>
+    <button>Create</button>
+    <button type="button" ng-click="walksShow.hideCreateForm()">Cancel</button>
+  </form>
+</section>
+
+        
