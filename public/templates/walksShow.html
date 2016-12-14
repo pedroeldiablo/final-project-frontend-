@@ -1,7 +1,13 @@
 <section>
   <h2>Walks Show</h2>
+  <div class="google-route">Google route here!</div>
   <h2>{{ walksShow.walk.name }}</h2>
   <h4>{{ walksShow.walk.user.username }}</h4>
+  <!-- <button ng-show="walksShow.isOwnWalk" ng-click="walksShow.showCreateForm()">Add Stop</button>
+  <div ng-hide="walksShow.isOwnWalk"> -->
+    <button ng-hide="walksShow.following" ng-click="walksShow.followWalk()">Follow Walk</button>
+    <button ng-show="walksShow.following" ng-click="walksShow.unfollowWalk()">Unfollow Walk</button>
+  </div>
   <ul>
     <li ng-repeat="stop in walksShow.walk.stops">
       <h4>{{ stop.purpose }}</h4>

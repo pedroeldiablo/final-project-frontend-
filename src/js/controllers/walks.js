@@ -39,7 +39,9 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   walksShow.walk = Walk.get($state.params);
 
   //ADD STOP CONTROLLER
-  walksShow.newStop = {};
+  walksShow.newStop = {
+    walk_id: $state.params.id
+  };
 
   function showCreateForm() {
     walksShow.formVisible = true;
@@ -74,7 +76,10 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   //   });
 
   function createStop() {
-    Stop.save({ walks: $state.params.id }, walksShow.newStop, () => {
+    walksShow.newStop.walk_id = $state.params.id;
+    console.log('passing in: ', $state.params.id, walksShow.newStop );
+
+    Stop.save(walksShow.newStop, () => {
       walksShow.stop = {};
       hideCreateForm();
       walksShow.walk = Walk.get($state.params);
