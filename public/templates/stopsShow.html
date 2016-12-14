@@ -1,14 +1,10 @@
 <section>
-  <h1>Stops Show</h1>
-      <h2>{{ stopsShow.stop.purpose }}</h2>
-      <h4>{{ stopsShow.stop.place.name }}</h4>
-      {{ stopsShow.stop.image }}
+  
+      <h1>{{ stopsShow.stop.purpose }}</h1>
+      <h2>{{ stopsShow.stop.place.name }}</h2>
       <img ng-src="{{ stopsShow.stop.image }}">
-      <!-- <img ng-src="{{ stopsShow.stop.image.image.url }}"> -->
-    <div><google-map stop="stopsShow.stop"></google-map></div>
+      <div><google-map stop="stopsShow.stop"></google-map></div>
       <a ng-if="main.isLoggedIn()" ui-sref="stopsEdit({ id: stopsShow.stop.id })" class="button">Edit</a>
       <button ng-if="main.isLoggedIn()" ng-click="stopsShow.delete()">Delete</button>
 
-      <!-- <div>image me<img src="{{ stopsShow.stop.image }}" alt="{{ stopsShow.stop.image }}"></div>
-      <img src="https://wdi-final.s3.amazonaws.com/6acb7f7cd6fec3a3d29493af68761f83.jpeg" alt=""> -->
 </section>

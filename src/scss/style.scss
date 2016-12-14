@@ -159,6 +159,16 @@ ul{
   }
 }
 
+.overlay {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  height: 80vw;
+}
+
 .background-image {
   height: calc(100vh - 50px);
   width: 100vw;
@@ -195,7 +205,7 @@ ul{
   width: 300px;
   background-color: green;
   border-radius: 0px;
-  line-height: 0;
+  line-height: 100px;
 
   img {
     width: 200px;

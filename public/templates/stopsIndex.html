@@ -10,7 +10,8 @@
       <a ui-sref="stopsShow({ id: stop.id })">
       <h2>{{ stop.purpose }}</h2></a>
       <h4>{{ stop.place.name }}</h4>
-      <google-map stop="stop"></google-map>
+      <img ng-src="{{ stop.image }}">
+      <!-- <google-map stop="stop"></google-map> -->
     </li>
   </ul>
 </section>

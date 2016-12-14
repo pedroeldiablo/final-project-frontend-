@@ -27,9 +27,6 @@ function googlePlace($window) {
         $scope.stop.google_place_id = place.place_id;
         $scope.stop.place_name = place.name;
         $scope.stop.place_address = place.place_address;
-        // $scope.place.rating = place.rating;
-        // $scope.place.website = place.website;
-
         $scope.$apply();
       });
     }

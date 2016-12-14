@@ -29,11 +29,60 @@ function WalksIndexController(Walk) {
 
 
 // SHOW AN INDIVIDUAL WALK
-WalksShowController.$inject = ['Walk', '$state', '$auth'];
-function WalksShowController(Walk, $state, $auth) {
+WalksShowController.$inject = ['Walk', 'Stop', '$state', '$auth'];
+function WalksShowController(Walk, Stop, $state, $auth) {
   const walksShow = this;
+  walksShow.formVisible = false;
+  // walksShow.formEditVisible = false;
+
 
   walksShow.walk = Walk.get($state.params);
+
+  //ADD STOP CONTROLLER
+  walksShow.newStop = {};
+
+  function showCreateForm() {
+    walksShow.formVisible = true;
+  }
+
+  function hideCreateForm() {
+    walksShow.formVisible = false;
+    walksShow.newStop = {};
+  }
+
+  walksShow.showCreateForm = showCreateForm;
+  walksShow.hideCreateForm = hideCreateForm;
+
+  // StopsNewController.$inject = ['Stop', '$state'];
+  // function StopsNewController(Stop, $state) {
+  //   const stopsNew = this;
+  //   stopsNew.stop = {};
+  //   function create() {
+  //     Stop.save(stopsNew.stop, (stop) => {
+  //       $state.go('stopsShow', { id: stop.id });
+  //     });
+  //   }
+  //   stopsNew.create = create;
+  // }
+
+  // CREATE STOP
+  // function createStop() {
+  //   Stop.save({ walk_id: $state.params.id }, walksShow.newStop, () => {
+  //     walksShow.stop = {};
+  //     hideCreateForm();
+  //     walksShow.walk = Walk.get($state.params);
+  //   });
+
+  function createStop() {
+    Stop.save({ walks: $state.params.id }, walksShow.newStop, () => {
+      walksShow.stop = {};
+      hideCreateForm();
+      walksShow.walk = Walk.get($state.params);
+    });
+  }
+
+  walksShow.createStop = createStop;
+
 
   function deleteWalk() {
     walksShow.walk.$remove(() => {
