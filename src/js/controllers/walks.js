@@ -1,8 +1,11 @@
 angular.module('finalProject')
   .controller('WalksIndexController', WalksIndexController)
+  // .controller('WalksFollowingController', WalksFollowingController)
+  .controller('WalksNewController', WalksNewController)
   .controller('WalksShowController', WalksShowController)
-  .controller('WalksEditController', WalksEditController)
-  .controller('WalksNewController', WalksNewController);
+  .controller('WalksEditController', WalksEditController);
+  // .controller('UserWalksController', UserWalksController);
+
 
 
 // SHOW ALL WALKS
@@ -14,29 +17,22 @@ function WalksIndexController(Walk) {
 
   function filter(walk) {
     const regex = new RegExp(walksIndex.queryString, 'i');
-    // const stopNames = walk.stops.map((stop) => {
-    //   return stop.name;
-    // }).join(', ');
     return regex.test(walk.name) || regex.test(walk.description)||regex.test(walk.user.username);
-
-    // return regex.test(walk.name) || regex.test(walk.description)||regex.test(walk.user.username) ||regex.test(stopNames);
   }
 
   walksIndex.filter = filter;
   walksIndex.all = Walk.query();
 }
 
-
-
 // SHOW AN INDIVIDUAL WALK
 WalksShowController.$inject = ['Walk', 'Stop', '$state', '$auth'];
 function WalksShowController(Walk, Stop, $state, $auth) {
   const walksShow = this;
   walksShow.formVisible = false;
-  // walksShow.formEditVisible = false;
 
 
   walksShow.walk = Walk.get($state.params);
+  console.log(walksShow.walk);
 
   //ADD STOP CONTROLLER
   walksShow.newStop = {
@@ -55,26 +51,6 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   walksShow.showCreateForm = showCreateForm;
   walksShow.hideCreateForm = hideCreateForm;
 
-  // StopsNewController.$inject = ['Stop', '$state'];
-  // function StopsNewController(Stop, $state) {
-  //   const stopsNew = this;
-  //   stopsNew.stop = {};
-  //   function create() {
-  //     Stop.save(stopsNew.stop, (stop) => {
-  //       $state.go('stopsShow', { id: stop.id });
-  //     });
-  //   }
-  //   stopsNew.create = create;
-  // }
-
-  // CREATE STOP
-  // function createStop() {
-  //   Stop.save({ walk_id: $state.params.id }, walksShow.newStop, () => {
-  //     walksShow.stop = {};
-  //     hideCreateForm();
-  //     walksShow.walk = Walk.get($state.params);
-  //   });
-
   function createStop() {
     walksShow.newStop.walk_id = $state.params.id;
     console.log('passing in: ', $state.params.id, walksShow.newStop );
@@ -85,6 +61,76 @@ function WalksShowController(Walk, Stop, $state, $auth) {
       walksShow.walk = Walk.get($state.params);
     });
   }
+
+  // EDIT STOP CONTROLLER
+  function showEditForm(stop) {
+    walksShow.formEditVisible = true;
+    walksShow.currentStop = stop;
+    walksShow.stopContentVisible = false;
+  }
+
+  function hideEditForm() {
+    walksShow.formEditVisible = false;
+  }
+
+  function hideStopContent() {
+    walksShow.stopContentVisible = false;
+  }
+
+  function showStop(stop) {
+    console.log('clicked!', stop);
+    showEditForm(stop);
+  }
+
+  function deleteStop(stop) {
+    console.log('delete me', stop);
+    Stop.remove({ id: stop._id, walkId: $state.params.id }, () => {
+      $state.reload();
+      // $state.go('walksShow', { id: walk._id });
+    });
+  }
+
+  walksShow.deleteStop = deleteStop;
+
+  // UPDATE WALK CONTROLLER WITH EDIT STOP
+  function updateWalk(updatedStop) {
+    Stop.update({ id: updatedStop._id, walkId: $state.params.id }, updatedStop);
+  }
+
+
+
+  // FOLLOW WALK
+  // function followWalk() {
+  //   walksShow.walk.followedBy.push(userId);
+  //
+  //   walksShow.walk.$update((walk) => {
+  //     console.log('succes, followed walk:', walk);
+  //     walksShow.following = true;
+  //   });
+  // }
+
+  // UN-FOLLOW WALK
+  // function unfollowWalk() {
+  //   const index = walksShow.walk.followedBy.indexOf(userId);
+  //   walksShow.walk.followedBy.splice(index,1);
+  //
+  //   walksShow.walk.$update((walk) => {
+  //     console.log('succes, unfollowed walk:', walk);
+  //     walksShow.following = false;
+  //   });
+  // }
+
+  // walksShow.unfollowWalk = unfollowWalk;
+  // walksShow.followWalk = followWalk;
+  walksShow.updateWalk = updateWalk;
+  walksShow.showEditForm = showEditForm;
+  walksShow.hideEditForm = hideEditForm;
+  walksShow.createStop = createStop;
+  walksShow.showStop = showStop;
+  // walksShow.showStopContent = showStopContent;
+  // walksShow.hideStopContent = hideStopContent;
+
+
 
   walksShow.createStop = createStop;
 

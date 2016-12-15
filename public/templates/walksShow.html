@@ -1,6 +1,7 @@
 <section>
   <h2>Walks Show</h2>
-  <div class="google-route">Google route here!</div>
+  <!-- <div><google-map walk="walkShow.stop"></google-map></div> -->
+  <google-route walk="walksShow.walk" ng-if="walksShow.walk.$resolved"></google-route>
   <h2>{{ walksShow.walk.name }}</h2>
   <h4>{{ walksShow.walk.user.username }}</h4>
   <!-- <button ng-show="walksShow.isOwnWalk" ng-click="walksShow.showCreateForm()">Add Stop</button>
@@ -54,6 +55,37 @@
       <br>
       <button>Create</button>
       <button type="button" ng-click="walksShow.hideCreateForm()">Cancel</button>
+    </form>
+  </section>
+</div>
+
+
+<!-- EDIT PIN FORM -->
+<div class="overlay" ng-if="walksShow.formEditVisible">
+  <section class="stop-form">
+    <form>
+      <label>Purpose</label>
+      <input type="text" name="purpose" placeholder="Purpose" ng-model="walksShow.currentStop.purpose" class="u-full-width">
+
+      <label>Place</label>
+      <input type="string" name="place" google-place stop="walksShow.currentStop.place">
+      <input type="string" name="place" placeholder="Where are we?" ng-model="walksShow.currentStop.place_name" class="u-full-width">
+
+      <label>Position</label>
+      <input type="string" name="position" placeholder="Position" ng-model="walksShow.currentStop.position" class="u-full-width">
+
+      <label>Image</label>
+      <drag-drop base64="walksShow.newStop.base64"></drag-drop>
+      <label>Public</label>
+      <input type="radio" name="public" placeholder="Public" ng-model="walksShow.currentStop.public" value="true">
+
+      <label>Private</label>
+      <input type="radio" name="public" placeholder="" ng-model="walksShow.currentStop.public" value="false">
+      <br>
+
+      <button class="editFormButton" type="button" ng-click="walksShow.updateWalk(walksShow.currentStop); walksShow.hideEditForm()">Update Stop</button>
+      <button class="editFormButton" type="button" ng-click="walksShow.deleteStop(walksShow.currentStop);">Delete Stop</button>
+      <button class="editFormButton" type="button" ng-click="walksShow.hideEditForm()">Cancel</button>
     </form>
   </section>
 </div>

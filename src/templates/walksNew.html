@@ -1,17 +1,17 @@
 <section>
   <form novalidate ng-submit="walksNew.create()">
     <div>
-      <label>Name</label>
-      <input type="text" placeholder="Add a name for your walk" ng-model="walksNew.walk.name">
+      <label>Name Your Walk</label>
+      <input type="text" placeholder="Add a name for your walk" ng-model="walksNew.walk.name" class="u-full-width">
     </div>
     <div>
-      <label>Description</label>
-      <input type="text" placeholder="Add a description of your walk" ng-model="walksNew.walk.description">
+      <label>Add a Short Description</label>
+      <input type="text" placeholder="Add a description of your walk" ng-model="walksNew.walk.description" class="u-full-width">
     </div>
-    <div>
+    <!-- <div>
       <label>Add Stop</label>
-      <input type="text" placeholder="Add a stop" ng-model="walksNew.walk.stops">
-    </div>
+      <input type="text" placeholder="Add a stop" ng-model="walksNew.walk.stops" class="u-full-width">
+    </div> -->
     <button>Save Walk</button>
   </form>
 </section>
