@@ -30,6 +30,17 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   const walksShow = this;
   walksShow.formVisible = false;
 
+  function deleteWalk() {
+    walksShow.walk.$remove(() => {
+      $state.go('walksIndex');
+    });
+  }
+
+
+  walksShow.isLoggedIn = $auth.isAuthenicated;
+
+
+
 
   walksShow.walk = Walk.get($state.params);
   console.log(walksShow.walk);
@@ -82,13 +93,27 @@ function WalksShowController(Walk, Stop, $state, $auth) {
     showEditForm(stop);
   }
 
+  // function deleteStop(stop) {
+  //   console.log('delete me', stop);
+  //   Stop.remove({ id: stop._id, walkId: $state.params.id }, () => {
+  //     $state.reload();
+  //     $state.go('walksShow', { id: walk._id });
+  //   });
+  // }
+
   function deleteStop(stop) {
     console.log('delete me', stop);
-    Stop.remove({ id: stop._id, walkId: $state.params.id }, () => {
+    Stop.remove({ id: stop.id}, () => {
       $state.reload();
       // $state.go('walksShow', { id: walk._id });
     });
   }
+
+  // function deleteStop() {
+  //   walksShow.stop.$remove(() => {
+  //     $state.go('stopsIndex');
+  //   });
+  // }
 
   walksShow.deleteStop = deleteStop;
 
@@ -122,6 +147,7 @@ function WalksShowController(Walk, Stop, $state, $auth) {
 
   // walksShow.unfollowWalk = unfollowWalk;
   // walksShow.followWalk = followWalk;
+  walksShow.delete = deleteWalk;
   walksShow.updateWalk = updateWalk;
   walksShow.showEditForm = showEditForm;
   walksShow.hideEditForm = hideEditForm;
@@ -131,20 +157,8 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   // walksShow.hideStopContent = hideStopContent;
 
 
-
-  walksShow.createStop = createStop;
-
-
-  function deleteWalk() {
-    walksShow.walk.$remove(() => {
-      $state.go('walksIndex');
-    });
-  }
-
-  walksShow.delete = deleteWalk;
-  walksShow.isLoggedIn = $auth.isAuthenicated;
-
 }
+
 
 //CREATE NEW WALK
 WalksNewController.$inject = ['Walk', '$state'];
