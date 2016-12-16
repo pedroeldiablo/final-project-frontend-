@@ -30,6 +30,12 @@ function WalksShowController(Walk, Stop, $state, $auth) {
   const walksShow = this;
   walksShow.formVisible = false;
 
+  // function isCurrentUser() {
+  //   return $auth.getPayload().id === Number($state.params.id);
+  // }
+  //
+  // walksShow.isCurrentUser = isCurrentUser;
+
   function deleteWalk() {
     walksShow.walk.$remove(() => {
       $state.go('walksIndex');

@@ -16,6 +16,12 @@ UsersShowController.$inject = ['User', '$state', '$auth'];
 function UsersShowController(User, $state, $auth) {
   const usersShow = this;
 
+  function isCurrentUser() {
+    return $auth.getPayload().id === Number($state.params.id);
+  }
+
+  usersShow.isCurrentUser = isCurrentUser;
+
   usersShow.user = User.get($state.params);
 
   function deleteUser() {

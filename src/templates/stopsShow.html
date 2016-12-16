@@ -1,10 +1,10 @@
 <section>
-  
+
       <h1>{{ stopsShow.stop.purpose }}</h1>
       <h2>{{ stopsShow.stop.place.name }}</h2>
       <img ng-src="{{ stopsShow.stop.image }}">
       <div><google-map stop="stopsShow.stop"></google-map></div>
-      <a ng-if="main.isLoggedIn()" ui-sref="stopsEdit({ id: stopsShow.stop.id })" class="button">Edit</a>
-      <button ng-if="main.isLoggedIn()" ng-click="stopsShow.delete()">Delete</button>
+      <a ng-if="usersShow.isCurrentUser()" ui-sref="stopsEdit({ id: stopsShow.stop.id })" class="button">Edit</a>
+      <button ng-if="usersShow.isCurrentUser()" ng-click="stopsShow.delete()">Delete</button>
 
 </section>

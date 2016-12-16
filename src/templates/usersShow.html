@@ -1,9 +1,26 @@
 <section>
   <h2>{{ usersShow.user.username }}</h2>
-  <h4>{{ usersShow.user.email }}</h4>
 
-  <button ui-sref="walksNew">Add Walk</button>
-  <a ng-if="main.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-if="main.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+  <h1>My Walks</h1>
+  <!-- <input type="text" ng-model="walksIndex.queryString" placeholder="Search for walks..." class="u-full-width"> -->
+  <ul class="row">
+    <!-- <li ng-repeat="stop in stopsIndex.all | filter: stopsIndex.filter "" class="three columns stops"> -->
+    <li ng-repeat="walk in usersShow.user.walks">
+    <!-- <li ng-repeat="walk in walksIndex.all"> -->
+      <a ui-sref="walksShow({ id: walk.id })">
+      <h2>{{ walk.name }}</h2></a>
+      <img src="{{ walk.stops[0].image }}">
+      <ul>
+        <li ng-repeat="stop in walk.stops">
+          <h4>{{ stop.purpose }}</h4>
+          <!-- <img src="{{ stop.image }}"> -->
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- <h4>{{ usersShow.user.email }}</h4> -->
+  <a ui-sref="usersEdit({ id: usersShow.user.id })" ng-if="usersShow.isCurrentUser()" class="button">Edit</a>
+  <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()">Delete</button>
 
 </section>

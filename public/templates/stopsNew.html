@@ -1,26 +1,27 @@
 <section>
   <h1>Create A Stop</h1>
+  <h3>That secret bar, that place with the melt in the mouth cake, the gallery that always wows, the garden that transports you to paradise. Share your thoughts on the best and the brightest the city has to offer</h3>
 
   <form ng-submit="stopsNew.create()">
-    <label>Purpose</label>
-    <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="stopsNew.stop.purpose" class="u-full-width">
-
-    <label>Place</label>
+    <label>Where are we going to? Search for the address to get you started</label>
     <input type="string" name="place" placeholder="Where is the stop?" google-place stop="stopsNew.stop" class="u-full-width">
 
-    <!-- <input type="string" name="place" placeholder="Where are we?" ng-model="stopsNew.stop.place_name" class="u-full-width"> -->
+
+    <label>What's unique about this place. Add a short description and help others with your insider tips.</label>
+    <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="stopsNew.stop.purpose" class="u-full-width">
+
     <label>Position</label>
     <input type="string" name="position" placeholder="Position" ng-model="stopsNew.stop.position" class="u-full-width">
 
-    <label>Image</label>
+    <label>A picture is worth a thousand words.</label>
     <drag-drop base64="stopsNew.stop.base64"></drag-drop>
 
-    <label>Public</label>
+    <!-- <label>Public</label>
     <input type="radio" name="public" placeholder="Public" ng-model="stopsNew.stop.public" value="true">
 
     <label>Private</label>
     <input type="radio" name="public" placeholder="" ng-model="stopsNew.stop.public" value="false">
-    <br>
+    <br> -->
     <button>Create</button>
   </form>
 </section>

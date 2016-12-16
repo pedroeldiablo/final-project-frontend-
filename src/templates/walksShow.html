@@ -1,68 +1,49 @@
 <section>
-  <h2>Walks Show</h2>
+  <h1>{{ walksShow.walk.name }}</h1>
+  <h4>{{ walksShow.walk.user.username }}</h4>
   <!-- <div><google-map walk="walkShow.stop"></google-map></div> -->
   <google-route walk="walksShow.walk" ng-if="walksShow.walk.$resolved && walksShow.walk.stops.length > 0"></google-route>
-  <h2>{{ walksShow.walk.name }}</h2>
-  <h4>{{ walksShow.walk.user.username }}</h4>
-  <!-- <button ng-hide="walksShow.following" ng-click="walksShow.followWalk()">Follow Walk</button>
-  <button ng-show="walksShow.following" ng-click="walksShow.unfollowWalk()">Unfollow Walk</button> -->
-
-  <ul>
-    <li ng-repeat="stop in walksShow.walk.stops">
+  <h3>{{ walksShow.walk.description }}</h3>
+  <button ng-click="walksShow.showCreateForm()">Add Stop</button>
+  <button ng-if="main.isLoggedIn()" ui-sref="walksEdit({ id: walksShow.walk.id })" class="button">Edit</button>
+  <button ng-if="main.isLoggedIn()" ng-click="walksShow.delete()">Delete</button>
+  <div class="stop-card">
+    <div ng-repeat="stop in walksShow.walk.stops">
       <h4>{{ stop.purpose }}</h4>
       <img src="{{ stop.image }}">
       <a  ui-sref="stopsEdit({ id: stop.id })" class="button">Edit</a>
-      <button ng-click="walksShow.deleteStop(stop)">Delete</button>
-      {{ stop.id }}
-    </li>
-  </ul>
-
-  <button ng-click="walksShow.showCreateForm()">Add Stop</button>
-  <!-- <h4>{{ walksShow.walk}}</h4> -->
-
-  <a ng-if="main.isLoggedIn()" ui-sref="walksEdit({ id: walksShow.walk.id })" class="button">Edit</a>
-  <button ng-if="main.isLoggedIn()" ng-click="walksShow.delete()">Delete</button>
-
+      <button ng-if="usersShow.isCurrentUser()" ng-click="walksShow.deleteStop(stop)">Delete</button>
+    </div>
+  </div>
 </section>
 
 <!-- ADD STOP FORM -->
 <div class="overlay" ng-if="walksShow.formVisible">
-
+  <h1>Create A Stop</h1>
   <section class="walk-form">
-
-    <h1>Create A Stop</h1>
-
     <form ng-submit="walksShow.createStop()">
-      <label>Purpose</label>
-      <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="walksShow.newStop.purpose" class="u-full-width">
-
-      <label>Place</label>
-      <input type="string" name="place" google-place stop="walksShow.newStop">
-
-      <!-- <input type="string" name="place" placeholder="Where are we?" ng-model="walksShow.newStop.place_name" class="u-full-width"> -->
-
-      <label>Position</label>
-      <input type="string" name="position" placeholder="Position" ng-model="walksShow.newStop.position" class="u-full-width">
-
-      <label>Image</label>
-      <drag-drop base64="walksShow.newStop.base64"></drag-drop>
-      <!-- <label>Public</label>
-      <input type="radio" name="public" placeholder="Public" ng-model="walksShow.newStop.public" value="true">
-
-      <label>Private</label>
-      <input type="radio" name="public" placeholder="" ng-model="walksShow.newStop.public" value="false">
-      <br> -->
-      <button>Create</button>
+        <label>Image</label>
+        <drag-drop base64="walksShow.newStop.base64"></drag-drop>
+        <label>Purpose</label>
+        <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="walksShow.newStop.purpose" class="u-full-width">
+        <label>Place</label>
+        <input type="string" name="place" google-place stop="walksShow.newStop" class="u-full-width">
+        <label>Position</label>
+        <input type="string" name="position" placeholder="Position" ng-model="walksShow.newStop.position" class="u-full-width">
+      <button>Create Stop</button>
       <button type="button" ng-click="walksShow.hideCreateForm()">Cancel</button>
     </form>
   </section>
 </div>
 
 
-<!-- EDIT PIN FORM -->
-<div class="overlay" ng-if="walksShow.formEditVisible">
+<!-- EDIT STOP FORM -->
+<!-- <div class="overlay" ng-if="walksShow.stopEditFormVisible">
   <section class="stop-form">
     <form>
+      <label>Image</label>
+      <drag-drop base64="walksShow.newStop.base64"></drag-drop>
+
       <label>Purpose</label>
       <input type="text" name="purpose" placeholder="Purpose" ng-model="walksShow.currentStop.purpose" class="u-full-width">
 
@@ -73,18 +54,10 @@
       <label>Position</label>
       <input type="string" name="position" placeholder="Position" ng-model="walksShow.currentStop.position" class="u-full-width">
 
-      <label>Image</label>
-      <drag-drop base64="walksShow.newStop.base64"></drag-drop>
-      <label>Public</label>
-      <input type="radio" name="public" placeholder="Public" ng-model="walksShow.currentStop.public" value="true">
-
-      <label>Private</label>
-      <input type="radio" name="public" placeholder="" ng-model="walksShow.currentStop.public" value="false">
-      <br>
-
       <button class="editFormButton" type="button" ng-click="walksShow.updateWalk(walksShow.currentStop); walksShow.hideEditForm()">Update Stop</button>
-      <button class="editFormButton" type="button" ng-click="walksShow.deleteStop(walksShow.currentStop);">Delete Stop</button>
+
       <button class="editFormButton" type="button" ng-click="walksShow.hideEditForm()">Cancel</button>
     </form>
+
   </section>
-</div>
+</div> -->

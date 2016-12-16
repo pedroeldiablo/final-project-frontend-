@@ -17,7 +17,7 @@
           <li class="logo"><a ui-sref="menu">Journal.</a></li>
           <li class="burger" ng-click="main.toggleMenu()">&#9776;</li>
           <div class="dropdown" ng-class="{ active: main.menuVisible }">
-            <li><a ui-sref="usersIndex" ui-sref-active="active" class="nav-link">Home</a></li>
+            <li><a ui-sref="usersIndex" ui-sref-active="active" class="nav-link">Users</a></li>
             <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
             <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
             <li ng-if="main.isLoggedIn()"><a ui-sref='walksIndex' ui-sref-active="active" class="nav-link">Walks</a></li>
