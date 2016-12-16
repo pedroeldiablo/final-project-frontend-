@@ -10,7 +10,7 @@
   <div class="stop-card">
     <div ng-repeat="stop in walksShow.walk.stops">
       <h4>{{ stop.purpose }}</h4>
-      <img src="{{ stop.image }}">
+      <img src="{{ stop.image }}" class="stop-image">
       <a  ui-sref="stopsEdit({ id: stop.id })" class="button">Edit</a>
       <button ng-if="usersShow.isCurrentUser()" ng-click="walksShow.deleteStop(stop)">Delete</button>
     </div>
