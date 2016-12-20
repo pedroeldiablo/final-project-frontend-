@@ -17,14 +17,23 @@
           <li class="logo"><a ui-sref="menu">Journal.</a></li>
           <li class="burger" ng-click="main.toggleMenu()">&#9776;</li>
           <div class="dropdown" ng-class="{ active: main.menuVisible }">
-            <li><a ui-sref="usersIndex" ui-sref-active="active" class="nav-link">Users</a></li>
-            <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
-            <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref='walksIndex' ui-sref-active="active" class="nav-link">Walks</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref='walksNew' ui-sref-active="active" class="nav-link">New Walk</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref='stopsIndex' ui-sref-active="active" class="nav-link">Stops</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref='stopsNew' ui-sref-active="active" class="nav-link">New Stop</a></li>
-            <li ng-if="main.isLoggedIn()"><a ng-click='main.logout()' class="nav-link">Log Out</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref="usersIndex" ui-sref-active="active" class="nav-link">Users</a></li>
+
+            <li ng-if="!main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
+
+            <li ng-if="!main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref='walksIndex' ui-sref-active="active" class="nav-link">Walks</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref='walksNew' ui-sref-active="active" class="nav-link">New Walk</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref='stopsIndex' ui-sref-active="active" class="nav-link">Stops</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref='stopsNew' ui-sref-active="active" class="nav-link">New Stop</a></li>
+
+            <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ng-click='main.logout()' class="nav-link">Log Out</a></li>
+            
           </div>
         </ul
       </nav>

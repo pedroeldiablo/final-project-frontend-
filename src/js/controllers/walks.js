@@ -50,6 +50,7 @@ function WalksShowController(Walk, Stop, $state, $auth) {
 
   walksShow.walk = Walk.get($state.params);
   console.log(walksShow.walk);
+  // console.log(walksShow.walk.user.user_id);
 
   //ADD STOP CONTROLLER
   walksShow.newStop = {

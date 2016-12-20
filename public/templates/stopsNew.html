@@ -1,17 +1,18 @@
 <section>
-  <h1>Create A Stop</h1>
-  <h3>That secret bar, that place with the melt in the mouth cake, the gallery that always wows, the garden that transports you to paradise. Share your thoughts on the best and the brightest the city has to offer</h3>
+  <div class="page-header"><h1>Create A Stop</h1>
+    <h2>That secret bar, that place with the melt in the mouth cake, the gallery that always wows, the garden that transports you to paradise. Share your thoughts on the best and the brightest the city has to offer</h2>
+  </div>
 
   <form ng-submit="stopsNew.create()">
-    <label>Where are we going to? Search for the address to get you started</label>
-    <input type="string" name="place" placeholder="Where is the stop?" google-place stop="stopsNew.stop" class="u-full-width">
+    <h3><label>Where are we going to? Search for the address to get you started</label></h3>
+    <h3><input type="string" name="place" placeholder="Where is the stop?" google-place stop="stopsNew.stop" class="u-full-width"></h3>
 
 
     <label>What's unique about this place. Add a short description and help others with your insider tips.</label>
     <input type="string" name="purpose" placeholder="What are we doing here?" ng-model="stopsNew.stop.purpose" class="u-full-width">
 
-    <label>Position</label>
-    <input type="string" name="position" placeholder="Position" ng-model="stopsNew.stop.position" class="u-full-width">
+    <!-- <label>Position</label>
+    <input type="string" name="position" placeholder="Position" ng-model="stopsNew.stop.position" class="u-full-width"> -->
 
     <label>A picture is worth a thousand words.</label>
     <drag-drop base64="stopsNew.stop.base64"></drag-drop>

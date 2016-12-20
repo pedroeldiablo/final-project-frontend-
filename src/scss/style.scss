@@ -10,15 +10,14 @@
 body {
   color: pink;
   background-color: #f9f9f9;
+  font-family: 'Raleway Dots', cursive;
   font-family: 'Roboto:100i', sans-serif;
   // font-family: 'Open Sans Condensed', sans-serif;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
-
-img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
 h1 {
   font-size: 25px;
 }
@@ -34,6 +33,7 @@ h2 {
 }
 h3 {
   font-size: 15px;
+  color: grey;
 }
 h4 {
   font-size: 10px;
@@ -248,4 +248,131 @@ div{
 
 .stop-image {
   width: 33%;
+}
+// 
+// label,
+// legend {
+//   color: grey;
+//   display: block;
+//   margin-bottom: .5rem;
+//   font-weight: 500; }
+// fieldset {
+//   padding: 0;
+//   border-width: 0; }
+// input[type="checkbox"],
+// input[type="radio"] {
+//   display: inline; }
+// label > .label-body {
+//   display: inline-block;
+//   margin-left: .5rem;
+//   font-weight: normal; }
+//
+//   input[type="email"],
+//   input[type="number"],
+//   input[type="search"],
+//   input[type="text"],
+//   input[type="tel"],
+//   input[type="url"],
+//   input[type="password"],
+//   textarea,
+//   select {
+//     height: 38px;
+//     padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+//     background-color: #fff;
+//     border: 1px solid #D1D1D1;
+//     border-radius: 0px;
+//     box-shadow: none;
+//     box-sizing: border-box; }
+//   /* Removes awkward default styles on some inputs for iOS */
+//   input[type="email"],
+//   input[type="number"],
+//   input[type="search"],
+//   input[type="text"],
+//   input[type="tel"],
+//   input[type="url"],
+//   input[type="password"],
+//   textarea {
+//     -webkit-appearance: none;
+//        -moz-appearance: none;
+//             appearance: none; }
+//   textarea {
+//     min-height: 65px;
+//     padding-top: 6px;
+//     padding-bottom: 6px; }
+//   input[type="email"]:focus,
+//   input[type="number"]:focus,
+//   input[type="search"]:focus,
+//   input[type="text"]:focus,
+//   input[type="tel"]:focus,
+//   input[type="url"]:focus,
+//   input[type="password"]:focus,
+//   textarea:focus,
+//   select:focus {
+//     border: 1px solid #33C3F0;
+//     outline: 0; }
+//   label,
+//   legend {
+//     display: block;
+//     margin-bottom: .5rem;
+//     font-weight: 600; }
+//   fieldset {
+//     padding: 0;
+//     border-width: 0; }
+//   input[type="checkbox"],
+//   input[type="radio"] {
+//     display: inline; }
+//   label > .label-body {
+//     display: inline-block;
+//     margin-left: .5rem;
+//     font-weight: normal; }
+
+
+.page-header {
+  margin: 20px 0;
+  &:h2{
+    hover:none;
+  }
+  // background-color: pink;
+}
+
+button {
+  border-radius: 0;
+}
+
+form {
+  border-radius: 0px;
+  margin-top:100px;
+  padding: 10px;
+  // width: 80%;
+  background-color: rgba(0,0,0,0.5);
+  // background-color: rgba(255,192,203,0.5);
+  // background-color: pink;
+}
+
+// div {
+//   &.round {
+//       width: 500px;
+//       border-radius: 100%;
+//       }
+//     }
+//   }
+// }
+//
+.home {
+  height: calc(100vh - 81px);
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: 81px;
+  left: 0;
+}
+
+.register {
+  // height: calc(100vh);
+  // width: 100vw;
+  background-position: center;
+  background-size: cover;
+  // position: fixed;
+  left: 0;
 }

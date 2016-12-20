@@ -5,6 +5,6 @@
       <img ng-src="{{ stopsShow.stop.image }}">
       <div><google-map stop="stopsShow.stop"></google-map></div>
       <a ng-if="usersShow.isCurrentUser()" ui-sref="stopsEdit({ id: stopsShow.stop.id })" class="button">Edit</a>
-      <button ng-if="usersShow.isCurrentUser()" ng-click="stopsShow.delete()">Delete</button>
+      <button ng-click="stopsShow.delete()">Delete</button>
 
 </section>
