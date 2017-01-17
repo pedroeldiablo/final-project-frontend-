@@ -1,9 +1,10 @@
 <section>
   <h1>{{ walksShow.walk.name }}</h1>
   <h4>{{ walksShow.walk.user.username }}</h4>
+  <h2>{{ walksShow.walk.description }}</h2>
   <!-- <div><google-map walk="walkShow.stop"></google-map></div> -->
-  <google-route walk="walksShow.walk" ng-if="walksShow.walk.$resolved && walksShow.walk.stops.length > 0"></google-route>
-  <h3>{{ walksShow.walk.description }}</h3>
+  <google-route walk="walksShow.walk" ng-if="walksShow.walk.$resolved && walksShow.walk.stops.length > 0"></google-route></br>
+
   <button ng-click="walksShow.showCreateForm()">Add Stop</button>
   <button ng-if="main.isLoggedIn()" ui-sref="walksEdit({ id: walksShow.walk.id })" class="button">Edit</button>
   <button ng-if="main.isLoggedIn()" ng-click="walksShow.delete()">Delete</button>
