@@ -1,8 +1,8 @@
 <section>
   <div class="searchbox">
     <h1>Looking for a place to pause</h1>
-    <h3>Whether you're putting together a whole journey of your own or simply seeking inspiration search for new places to go</h3></br>
-    <h3>Search for stops....</h3>
+    <h2>Whether you're putting together a whole journey of your own or simply seeking inspiration search for new places to go</h2></br>
+    <h2>Search for stops....</h2>
     <img src="images/magglass.png" div class="icon" ></>
     <input type="text" ng-model="stopsIndex.queryString" placeholder="Search for stops..."
     class="searchbar">
@@ -11,10 +11,9 @@
   <div class="row">
     <div ng-repeat="stop in stopsIndex.all | filter: stopsIndex.filter" class="three columns stops">
       <a ui-sref="stopsShow({ id: stop.id })">
-      <div class=square><img ng-src="{{ stop.image }}"></div>
+      <div class="hundred"><img ng-src="{{ stop.image }}"></div>
       <h2>{{ stop.purpose }}</h2></a>
       <h4>{{ stop.place.name }}</h4>
-
       <!-- <google-map stop="stop"></google-map> -->
     </div>
   </div>

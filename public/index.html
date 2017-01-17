@@ -2,7 +2,7 @@
 <html ng-app="finalProject">
   <head>
     <meta charset="utf-8">
-    <title>Final Project</title>
+    <title>Journal-Maps</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrOIK4cXC5QrPtf5lBZ-wikfFGpo5_mRA&libraries=geometry,places,directions" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -33,7 +33,7 @@
             <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ui-sref='stopsNew' ui-sref-active="active" class="nav-link">New Stop</a></li>
 
             <li ng-if="main.isLoggedIn()" ng-click="main.toggleMenu()"><a ng-click='main.logout()' class="nav-link">Log Out</a></li>
-            
+
           </div>
         </ul
       </nav>

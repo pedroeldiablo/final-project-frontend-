@@ -1,14 +1,16 @@
 <section>
-  <h1>Walks Show</h1>
-  <input type="text" ng-model="walksIndex.queryString" placeholder="Search for walks..." class="u-full-width">
-  <div class="row">
-    <div ng-repeat="walk in walksIndex.all | filter: walksIndex.filter" class="three columns stops">
-      <a ui-sref="walksShow({ id: walk.id })">
-      <h2>{{ walk.name }}</h2></a>
-      <h4>{{ walk.user.username }}</h4>
-      <img src="{{ walk.stops[0].image }}">
-      <div>
-        <div ng-repeat="stop in walk.stops">
+  <div class="searchbox">
+    <h1>Walks Show</h1>
+    <input type="text" ng-model="walksIndex.queryString" placeholder="Search for walks..." class="u-full-width">
+    <div class="row">
+      <div ng-repeat="walk in walksIndex.all | filter: walksIndex.filter" class="three columns stops">
+        <a ui-sref="walksShow({ id: walk.id })">
+        <h2>{{ walk.name }}</h2></a>
+        <h4>{{ walk.user.username }}</h4>
+        <img src="{{ walk.stops[0].image }}">
+        <div>
+          <div ng-repeat="stop in walk.stops">
+          </div>
         </div>
       </div>
     </div>
