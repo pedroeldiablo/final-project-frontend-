@@ -16,7 +16,7 @@ On asking the host for recommendations for restaurants, cafes and bars in the ar
 
 It struck me that there must be a better way for making personal recommendations of this sort, particularly tying them together into walks, so that for example if you have family staying, or in this case AirBnB guests, you can put together recommendations of the sort that really speaks of an area and local knowledge.
 
-![alt text](https://src/image/Barcelona-map.jpg "Map of Barcelona with recommendations")
+![alt text](//images/Barcelona-map.jpg "Map of Barcelona with recommendations")
 
 ##Project Aims
 
