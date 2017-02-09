@@ -24,12 +24,21 @@ function LoginController($auth, $state) {
 
   login.credentials = {};
 
+  // function submit() {
+  //   $auth.login(login.credentials)
+  //     .then(() => {
+  //       $state.go('usersIndex');
+  //     });
+  // }
+
   function submit() {
     $auth.login(login.credentials)
       .then(() => {
-        $state.go('usersIndex');
+        $state.go('usersShow');
       });
   }
+
+
   // function authenticate(provider) {
   //   $auth.authenticate(provider)
   //     .then((res) => {

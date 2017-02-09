@@ -213,11 +213,11 @@ function googleMap($window) {
           map.setCenter(latLng);
         }
       });
-      map.addListener('resize', function() {
-        var latLng = map.getCenter();
-        map.event.trigger(map, 'resize');
-        map.setCenter(latLng);
-      });
+      // map.addListener('resize', function() {
+      //   var latLng = map.getCenter();
+      //   map.event.trigger(map, 'resize');
+      //   map.setCenter(latLng);
+      // });
 
     }
   };

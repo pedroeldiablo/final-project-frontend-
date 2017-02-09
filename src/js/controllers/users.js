@@ -24,15 +24,43 @@ function UsersShowController(User, $state, $auth) {
 
   usersShow.user = User.get($state.params);
 
+//   function deleteUser() {
+//     usersShow.user.$remove(() => {
+//       $state.go('usersIndex');
+//       $state.go('register');
+//     });
+//   }
+//
+//   usersShow.delete = deleteUser;
+//   usersShow.isLoggedIn = $auth.isAuthenicated;
+//
+// }
+//
+// UsersEditController.$inject = ['User', '$state'];
+// function UsersEditController(User, $state) {
+//   const usersEdit = this;
+//
+//   usersEdit.user = User.get($state.params);
+//
+//   function update() {
+//     usersEdit.user.$update(() => {
+//       $state.go('usersShow', $state.params);
+//     });
+//   }
+//
+//   this.update = update;
+//
+// }
+
+
   function deleteUser() {
     usersShow.user.$remove(() => {
-      $state.go('usersIndex');
+      $state.go('register');
     });
   }
 
   usersShow.delete = deleteUser;
   usersShow.isLoggedIn = $auth.isAuthenicated;
-
 }
 
 UsersEditController.$inject = ['User', '$state'];
@@ -41,12 +69,10 @@ function UsersEditController(User, $state) {
 
   usersEdit.user = User.get($state.params);
 
-  function update() {
+  function updateUser() {
     usersEdit.user.$update(() => {
       $state.go('usersShow', $state.params);
     });
   }
-
-  this.update = update;
-
+  usersEdit.update = updateUser;
 }
