@@ -6,6 +6,8 @@
 
 Become an urban explorer. Discover cities like never before.
 
+![alt text](/public/images/Desktop-stops-preview.jpg "A preview of the stops with an earlier version of the site styling")
+
 ##Overview
 
 Starting from a personal experience I decided to develop a personalised map making application.
