@@ -2,32 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Raleway+Dots|Roboto:100,100i,400,400i');
 
 
-// font-family: 'Open Sans Condensed', sans-serif;
-// font-family: 'Raleway', sans-serif;
-// font-family: 'Raleway Dots', cursive;
-// font-family: 'Roboto', sans-serif;
-
-// body {
-//   color: pink;
-//   background-color: #f9f9f9;
-//   font-family: 'Raleway Dots', cursive;
-//   font-family: 'Roboto:100i', sans-serif;
-//   // font-family: 'Open Sans Condensed', sans-serif;
-//   img {
-//     max-width: 100%;
-//     max-height: 100%;
-//   }
-// }
-
 body {
+  // min-height: 100hv;
   color: #484848;
-  // background-color: #f9f9f9;
+  background-color: #f9f9f9;
   font-family: 'Raleway Dots', cursive;
   font-family: 'Roboto:100i', sans-serif;
-  // font-family: 'Open Sans Condensed', sans-serif;
+
   img {
     max-width: 100%;
-    max-height: 100%;
+    // max-height: 100%;
   }
 }
 
@@ -78,8 +62,8 @@ ul {
 
 }
 main {
-  padding: 30px 20px 0;
-  min-height: calc(100vh - 50px);
+  padding-top: 30px;
+  min-height: calc(100vh - 30px);
   // word-break: break-all;
   // word-wrap: normal;
   overflow: scroll;
@@ -87,13 +71,16 @@ main {
 
 
 header {
-  // position: fixed;
+  height: 80px;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
   border-top: 3px solid grey;
   border-bottom: 3px solid grey;
-  // background-color: rgba(0, 0, 0, 1s);
+  background-color: rgba(255, 255, 255, 1s);
   font-family: 'Raleway Dots', cursive;
   nav {
-    height: 50px;
+    // height: 30px;
     // @include outer-container;
     padding: 0 20px;
     ul{
@@ -186,6 +173,10 @@ header {
       }
     }
   }
+}
+
+section {
+  margin-top: 100px;
 }
 
 div{
@@ -300,83 +291,6 @@ div{
 .stop-image {
   width: 33%;
 }
-//
-// label,
-// legend {
-//   color: grey;
-//   display: block;
-//   margin-bottom: .5rem;
-//   font-weight: 500; }
-// fieldset {
-//   padding: 0;
-//   border-width: 0; }
-// input[type="checkbox"],
-// input[type="radio"] {
-//   display: inline; }
-// label > .label-body {
-//   display: inline-block;
-//   margin-left: .5rem;
-//   font-weight: normal; }
-//
-//   input[type="email"],
-//   input[type="number"],
-//   input[type="search"],
-//   input[type="text"],
-//   input[type="tel"],
-//   input[type="url"],
-//   input[type="password"],
-//   textarea,
-//   select {
-//     height: 38px;
-//     padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-//     background-color: #fff;
-//     border: 1px solid #D1D1D1;
-//     border-radius: 0px;
-//     box-shadow: none;
-//     box-sizing: border-box; }
-//   /* Removes awkward default styles on some inputs for iOS */
-//   input[type="email"],
-//   input[type="number"],
-//   input[type="search"],
-//   input[type="text"],
-//   input[type="tel"],
-//   input[type="url"],
-//   input[type="password"],
-//   textarea {
-//     -webkit-appearance: none;
-//        -moz-appearance: none;
-//             appearance: none; }
-//   textarea {
-//     min-height: 65px;
-//     padding-top: 6px;
-//     padding-bottom: 6px; }
-//   input[type="email"]:focus,
-//   input[type="number"]:focus,
-//   input[type="search"]:focus,
-//   input[type="text"]:focus,
-//   input[type="tel"]:focus,
-//   input[type="url"]:focus,
-//   input[type="password"]:focus,
-//   textarea:focus,
-//   select:focus {
-//     border: 1px solid #33C3F0;
-//     outline: 0; }
-//   label,
-//   legend {
-//     display: block;
-//     margin-bottom: .5rem;
-//     font-weight: 600; }
-//   fieldset {
-//     padding: 0;
-//     border-width: 0; }
-//   input[type="checkbox"],
-//   input[type="radio"] {
-//     display: inline; }
-//   label > .label-body {
-//     display: inline-block;
-//     margin-left: .5rem;
-//     font-weight: normal; }
-
 
 .page-header {
   margin: 20px 0;
@@ -387,12 +301,15 @@ div{
 }
 
 button {
-  border-radius: 0;
+  background: pink;
+  margin: 0 auto;
 }
 
 form {
+  max-width: 100%;
+  // margin-left: 10%;
   border-radius: 0px;
-  margin-top:100px;
+  // margin-top:100px;
   padding: 10px;
   // width: 80%;
   background-color: #ff7e82;
@@ -400,6 +317,10 @@ form {
   // background-color: rgba(0,0,0,0.2);
   // background-color: rgba(255,192,203,0.5);
   // background-color: pink;
+  &:button {
+    margin: 0 auto;
+    // border-radius: 20px;
+  }
 }
 
 // div {
@@ -412,18 +333,20 @@ form {
 // }
 //
 .home {
-  height: calc(100vh - 81px);
-  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  width: calc(100vw - 20%);
   background-position: center;
   background-size: cover;
   position: fixed;
-  top: 81px;
+  top: 50px;
   left: 0;
+  padding: 0 10%;
 }
 
 .register {
   // height: calc(100vh);
-  // width: 100vw;
+  width: 100vw;
   background-position: center;
   background-size: cover;
   // position: fixed;
